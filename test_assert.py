@@ -17,13 +17,9 @@ class test_asser(unittest.TestCase):
 
 
     def test_allarm(self):
-        mass = []
-        button = self.driver.find_element_by_xpath("//div[@class='input-group-addon'][2]").click()
-        productlist = self.driver.find_elements_by_xpath("//ul[@class='productList']/li[@class!='bundle row']")
-        for product in productlist:
-            mass.append(product)
-        print(len(mass))
-        assert 50 == len(mass)
+        Inlog = self.driver.find_element(By.XPATH, "//a[contains(text(), 'Inloggen')]")
+
+        assert 'Inloggen' == Inlog.text
 
 
 
