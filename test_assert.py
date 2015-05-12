@@ -17,9 +17,9 @@ class test_asser(unittest.TestCase):
 
 
     def test_allarm(self):
-        Inlog = self.driver.find_element(By.XPATH, "//a[contains(text(), 'Inloggen')]")
-
-        assert 'Inloggen' == Inlog.text
+        inlog = self.driver.find_element(By.XPATH, "//a[contains(text(), 'Inloggen')]")
+        if 'Inloggen' in inlog.text:
+            print ("INLOG")
 
 
 
