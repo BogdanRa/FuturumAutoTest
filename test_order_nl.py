@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import unittest
-import MySQLdb.connections
+import MySQLdb
 
 
 
@@ -16,7 +16,13 @@ class test_order_nl(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.page = self.driver.get("http://futurumshop.nl")
         self.driver.set_window_size(2000, 2000)
+        product = []
+        db = MySQLdb.connect(host='localhost', user='root', passwd='admiralxoxol', db='futurum')
+        cur = db.cursor()
+        cur.execute("select prodlevid from product where own_stock = '2' LIMIT 0, 20;")
 
+        for base in cur.fetchall():
+            product.append(base[0])
 
 
     def test_ordernl(self):
