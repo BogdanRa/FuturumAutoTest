@@ -45,8 +45,9 @@ class test_order_nl(unittest.TestCase):
         #pm
         for pmname in self.paymethod:
 
-            if pmname == "ideal":
+           if pmname == "ideal":
                 ran = random.randrange(2, 5)
+                subPaymentMethodIndex = 2
                 for x in range(1, ran):
                     search =  self.driver.find_element_by_id("fc_search").send_keys(random.choice(product), Keys.ENTER)
                     add_tocard = self.driver.find_element_by_xpath("(//div[@id='selectedProduct']//div/button)[2]").click()
@@ -61,15 +62,13 @@ class test_order_nl(unittest.TestCase):
                 step2.click()
                 go_pm = self.driver.find_element(By.XPATH, "(//form[@id='orderForm']//button)[1]")
                 go_pm.click()
-                pm = self.driver.find_element(By.ID, '{0!s}'.format(pmname))
-                ideal = self.driver.find_elements(By.XPATH, "//select[@id='parentId-ideal']/option[position()>1]")
-                for i in ideal:
-                    try:
-                        Select(self.driver.find_element(By.ID, "parentId-ideal")).select_by_value('{0!s}'.format(i.get_attribute('value')))
-                        self.driver.find_element(By.XPATH, "(//button[@class='btncta icon buy large orderButton nextstep checkout'])[1]").click()
 
-                    except NoSuchElementException:
-                        self.driver.get("http://futurumshop.nl")
+                Select(self.driver.find_element(By.ID, "parentId-ideal")).select_by_index('{:d}'.format(subPaymentMethodIndex))
+                #ideal = Select(self.driver.find_element(By.XPATH, "//select[@id='parentId-ideal']/option[position()='{:d}']".format(subPaymentMethodIndex)))
+               # Select(self.driver.find_element(By.ID, "parentId-ideal")).select_by_value('{0!s}'.format(i.get_attribute('value')))
+                print(subPaymentMethodIndex)
+                subPaymentMethodIndex += 1
+
 
 
 
