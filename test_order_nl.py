@@ -14,7 +14,9 @@ class test_order_nl(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.page = self.driver.get("http://futurumshop.nl")
         self.driver.set_window_size(2000, 2000)
-        self.paymethod = {"ideal":["ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U", "FVLBNL22"], "paypal": 'paypal',  "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
+        self.paymethod = {"ideal":["ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U", "FVLBNL22"], "paypal": 'paypal',
+                          "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
+
         self.ran = random.randrange(2, 5)
 
     def test_ordernl(self):
@@ -66,12 +68,60 @@ class test_order_nl(unittest.TestCase):
         # PM
                     print(pmideal)
                     Select(self.driver.find_element(By.ID, "parentId-ideal")).select_by_value('{}'.format(pmideal))
-                    self.driver.find_element(By.XPATH, "(//button[@class='btncta icon buy large orderButton nextstep checkout'])[1]")
+                    buy = self.driver.find_element(By.XPATH, "(//button[@class='btncta icon buy large orderButton nextstep checkout'])[1]")
+                    buy.click()
+                    print("BUY")
+                    self.driver.get("http://futurumshop.nl")
 
+            elif pmname == 'ogonestd':
+                for pmogonestd in self.paymethod[pmname]:
 
-        else:
-            print(pmname)
+                    for x in range(1, self.ran):
 
+                        search =  self.driver.find_element_by_id("fc_search").send_keys(random.choice(product), Keys.ENTER)
+                        add_tocard = self.driver.find_element_by_xpath("(//div[@id='selectedProduct']//div/button)[2]").click()
+                        print("Add to card " + random.choice(product))
+
+        # steps to PM
+                    click_card = self.driver.find_element(By.XPATH, "//div[@class='cartHeader']//a")
+                    click_card.click()
+                    step1 = self.driver.find_element(By.XPATH, "(//button[@class='btncta icon buy large checkout'])[1]")
+                    step1.click()
+                    step2 = self.driver.find_element(By.ID, "default")
+                    step2.click()
+                    go_pm = self.driver.find_element(By.XPATH, "(//form[@id='orderForm']//button)[1]")
+                    go_pm.click()
+        # PM
+                    print(pmogonestd)
+                    Select(self.driver.find_element(By.ID, "parentId-ideal")).select_by_value('{}'.format(pmogonestd))
+                    buy = self.driver.find_element(By.XPATH, "(//button[@class='btncta icon buy large orderButton nextstep checkout'])[1]")
+                    buy.click()
+                    print("buy "+ pmname )
+
+            else:
+                    for x in range(1, self.ran):
+
+                        search =  self.driver.find_element_by_id("fc_search").send_keys(random.choice(product), Keys.ENTER)
+                        add_tocard = self.driver.find_element_by_xpath("(//div[@id='selectedProduct']//div/button)[2]").click()
+                        print("Add to card " + random.choice(product))
+
+                    # steps to PM
+                    click_card = self.driver.find_element(By.XPATH, "//div[@class='cartHeader']//a")
+                    click_card.click()
+                    step1 = self.driver.find_element(By.XPATH, "(//button[@class='btncta icon buy large checkout'])[1]")
+                    step1.click()
+                    step2 = self.driver.find_element(By.ID, "default")
+                    step2.click()
+                    go_pm = self.driver.find_element(By.XPATH, "(//form[@id='orderForm']//button)[1]")
+                    go_pm.click()
+
+                    print(pmname)
+                    other = self.driver.find_element(By.XPATH, "//input[@id='{}']".format(pmname))
+                    other.click()
+                    print("buy "+ pmname )
+                    buy = self.driver.find_element(By.XPATH, "(//button[@class='btncta icon buy large orderButton nextstep checkout'])[1]")
+                    buy.click()
+                    self.driver.get("http://futurumshop.nl")
 
     def tearDown(self):
         self.driver.quit()
