@@ -6,9 +6,13 @@ from selenium.webdriver.common.by import By
 import unittest
 import MySQLdb
 import random
+from method import method
 
 
-class test_order_nl(unittest.TestCase):
+
+
+
+class test_order_nl(unittest.TestCase, method):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -17,7 +21,12 @@ class test_order_nl(unittest.TestCase):
         self.paymethod = {"ideal":["ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U", "FVLBNL22"], "paypal": 'paypal',
                           "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
 
-        self.ran = random.randrange(2, 5)
+        
+
+        self.ran = random.randrange(2, 6)
+
+
+
 
     def test_ordernl(self):
 
@@ -25,13 +34,15 @@ class test_order_nl(unittest.TestCase):
         product = []
         db = MySQLdb.connect(host='localhost', user='root', passwd='admiralxoxol', db='futurum')
         cur = db.cursor()
-        cur.execute("select prodlevid from product where own_stock = '5' LIMIT 0, 20;")
+        cur.execute("select prodlevid from product where own_stock = '3' LIMIT 0, 20;")
 
         for base in cur.fetchall():
            product.append(base[0])
 
 
         #loggin futurumshop123@gmail,com
+
+
 
         inlog = self.driver.find_element(By.XPATH, "//a[contains(text(), 'Inloggen')]")
         inlog.click()
@@ -66,12 +77,19 @@ class test_order_nl(unittest.TestCase):
                     go_pm = self.driver.find_element(By.XPATH, "(//form[@id='orderForm']//button)[1]")
                     go_pm.click()
         # PM
-                    print(pmideal)
+                   
                     Select(self.driver.find_element(By.ID, "parentId-ideal")).select_by_value('{}'.format(pmideal))
                     buy = self.driver.find_element(By.XPATH, "(//button[@class='btncta icon buy large orderButton nextstep checkout'])[1]")
                     buy.click()
-                    print("BUY")
-                    self.driver.get("http://futurumshop.nl")
+
+                    try:
+                        self.driver.get("http://futurumshop.nl")
+                        alarm = self.driver.switch_to_alert()
+                        alarm.accept()
+                    except NoSuchElementException, e: return False
+
+
+
 
             elif pmname == 'ogonestd':
                 for pmogonestd in self.paymethod[pmname]:
@@ -92,11 +110,11 @@ class test_order_nl(unittest.TestCase):
                     go_pm = self.driver.find_element(By.XPATH, "(//form[@id='orderForm']//button)[1]")
                     go_pm.click()
         # PM
-                    print(pmogonestd)
+
                     Select(self.driver.find_element(By.ID, "parentId-ideal")).select_by_value('{}'.format(pmogonestd))
                     buy = self.driver.find_element(By.XPATH, "(//button[@class='btncta icon buy large orderButton nextstep checkout'])[1]")
                     buy.click()
-                    print("buy "+ pmname )
+
 
             else:
                     for x in range(1, self.ran):
@@ -115,10 +133,10 @@ class test_order_nl(unittest.TestCase):
                     go_pm = self.driver.find_element(By.XPATH, "(//form[@id='orderForm']//button)[1]")
                     go_pm.click()
 
-                    print(pmname)
+
                     other = self.driver.find_element(By.XPATH, "//input[@id='{}']".format(pmname))
                     other.click()
-                    print("buy "+ pmname )
+
                     buy = self.driver.find_element(By.XPATH, "(//button[@class='btncta icon buy large orderButton nextstep checkout'])[1]")
                     buy.click()
                     self.driver.get("http://futurumshop.nl")
