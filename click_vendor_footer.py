@@ -34,7 +34,7 @@ class test_vendor(unittest.TestCase):
 
                     for names in self.vendor_name:
                             pass
-                    self.driver.get_screenshot_as_file('/home/user/Screenweb/{0!s}.png'.format(names))
+                    self.driver.get_screenshot_as_file('/home/bohdan/{0!s}.png'.format(names))
             except NoSuchElementException:
                     self.driver.get('http://futurumshop.nl')
                     print("Lending page ")
