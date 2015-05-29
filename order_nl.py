@@ -22,9 +22,8 @@ class test_order_nl(unittest.TestCase):
         self.id = self.start.find_by_id
         self.send_to_id = self.start.send_keys_id
         self.send_to_xpath = self.start.send_keys_xpath
-       
-        # done
 
+        # done
 
         self.paymethod = {"ideal":["ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U", "FVLBNL22"], "paypal": 'paypal',
                           "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
@@ -47,14 +46,7 @@ class test_order_nl(unittest.TestCase):
                    "6004-0459-N1304", "6004-0470-002-N1307", "6004-0470-004-N1307", "6004-0514-002-N1308", "6004-0519-004-N1308",
                     "6004-0520-004-N1308", "6004-0577-001-N1502", "6004-0580-002-N1502", "6004-0591-003-N1502", "6004-0593-004-N1502"]
 
-
-
-
-
         #add to card
-
-
-
         #pm
         for pmname in self.paymethod:
 
@@ -127,5 +119,5 @@ class test_order_nl(unittest.TestCase):
                     self.xpath("(//button[@class='btncta icon buy large orderButton nextstep checkout'])[1]")
                     self.driver.get("http://futurumshop.nl")
 
-   # def tearDown(self):
-       # self.driver.quit()
+    def tearDown(self):
+        self.driver.quit()
