@@ -24,9 +24,11 @@ class test_order_nl(unittest.TestCase):
 
         # done
 
-        self.paymethod = {"ideal":[ "FVLBNL22", "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U"], "paypal": 'paypal', "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
+        self.paymethod = {"ideal":[ "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U", "FVLBNL22"],
+                          "paypal": 'paypal', "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
 
-        self.ran = random.randrange(2, 10)
+
+        self.ran = random.randrange(2, 5)
 
 
 
@@ -53,7 +55,7 @@ class test_order_nl(unittest.TestCase):
 
                 print("Add to card " + random.choice(product))
 
-                # steps PM
+            # steps PM
             self.xpath(go_card)
             self.xpath(two_step_in_card)
             self.click_by_id(choose_default)
@@ -66,16 +68,17 @@ class test_order_nl(unittest.TestCase):
 
             if pmname == "ideal":
                 for pmideal in self.paymethod[pmname]:
+                    print("begin")
+
+
 
                     self.send_to_id(search, (random.choice(product)))
                     self.xpath(add_to_card)
-
                     #steps PM
                     self.xpath(go_card)
                     self.xpath(two_step_in_card)
                     self.click_by_id(choose_default)
                     self.xpath(go_pm_page)
-
                     Select(self.driver.find_element(By.ID, "parentId-ideal")).select_by_value('{}'.format(pmideal))
                     self.xpath(buy_button)
                     self.driver.get("http://futurumshop.nl")
@@ -94,7 +97,7 @@ class test_order_nl(unittest.TestCase):
                 for pmogonestd in self.paymethod[pmname]:
 
 
-                    Select(self.id("parentId-ideal")).select_by_value('{}'.format(pmogonestd))
+                    Select(self.click_by_id("parentId-ideal")).select_by_value('{}'.format(pmogonestd))
                     self.xpath(buy_button)
 
 
@@ -102,10 +105,9 @@ class test_order_nl(unittest.TestCase):
             else:
 
                     self.xpath("//input[@id='{}']".format(pmname))
-
                     self.xpath(buy_button)
+                    self.driver.get("http://futurumshop.nl")
 
 
-
-    def tearDown(self):
-        self.driver.quit()
+    #def tearDown(self):
+        #self.driver.quit()
