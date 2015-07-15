@@ -5,10 +5,12 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import unittest
 import random
-#from  connect_to_bd import product_form_bd
+from  connect_to_bd import product_form_bd
 from selenium.webdriver.support.expected_conditions import alert_is_present
 from selenium.webdriver.support import expected_conditions as EC
 from  Button_from_fo import *
+import time
+
 
 class test_order_nl(unittest.TestCase):
 
@@ -24,8 +26,12 @@ class test_order_nl(unittest.TestCase):
 
         # done
 
-        self.paymethod = {"ideal":[ "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U", "FVLBNL22"],
-                          "paypal": 'paypal', "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
+        self.paymethod = {"ideal":[ "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U", "FVLBNL22"],"paypal": 'paypal',
+                          "ogonestd":["visa", "aexpress", "mastercard"], "overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
+
+
+
+
 
 
         self.ran = random.randrange(2, 5)
@@ -36,10 +42,10 @@ class test_order_nl(unittest.TestCase):
     def test_ordernl(self):
 
 
-        product = ["6003-0072-N1011"]
+        #product = ["6003-0072-N1011"]
         # add products ( connect to mysql )
-        #products = product_form_bd()
-        #product = products.connect_to_mysql()
+        products = product_form_bd()
+        product = products.connect_to_mysql()
         # close connect :)
 
         for pmname in self.paymethod:
@@ -82,7 +88,7 @@ class test_order_nl(unittest.TestCase):
                     Select(self.driver.find_element(By.ID, "parentId-ideal")).select_by_value('{}'.format(pmideal))
                     self.xpath(buy_button)
                     self.driver.get("http://futurumshop.nl")
-
+                    time.sleep(3)
 
 
 
@@ -96,8 +102,16 @@ class test_order_nl(unittest.TestCase):
 
                 for pmogonestd in self.paymethod[pmname]:
 
+                    self.send_to_id(search, (random.choice(product)))
+                    self.xpath(add_to_card)
+                    #steps PM
+                    self.xpath(go_card)
+                    self.xpath(two_step_in_card)
+                    self.click_by_id(choose_default)
+                    self.xpath(go_pm_page)
 
-                    Select(self.click_by_id("parentId-ideal")).select_by_value('{}'.format(pmogonestd))
+                    self.click_by_id('ogonestd')
+                    Select(self.driver.find_element(By.ID, "parentId-ogonestd")).select_by_value('{}'.format(pmogonestd))
                     self.xpath(buy_button)
 
 
