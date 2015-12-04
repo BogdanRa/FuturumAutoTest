@@ -5,9 +5,18 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import unittest
 import random
+<<<<<<< HEAD
 #from  connect_to_bd import self.product_form_bd
 from Button_from_fo import *
 import time
+=======
+from  connect_to_bd import product_form_bd
+from selenium.webdriver.support.expected_conditions import alert_is_present
+from selenium.webdriver.support import expected_conditions as EC
+from  Button_from_fo import *
+import time
+
+>>>>>>> 62124b8d50bdf3fcc2059f657ef06a59ce6dc5db
 
 
 class test_order_nl(unittest.TestCase, start_webdriver):
@@ -24,8 +33,17 @@ class test_order_nl(unittest.TestCase, start_webdriver):
 
         # done
 
+<<<<<<< HEAD
         self.paymethodnl = {"ideal":[ "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U", "FVLBNL22"]}#,
                           #"paypal": 'paypal', "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
+=======
+        self.paymethod = {"ideal":[ "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U", "FVLBNL22"],"paypal": 'paypal',
+                          "ogonestd":["visa", "aexpress", "mastercard"], "overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
+
+
+
+
+>>>>>>> 62124b8d50bdf3fcc2059f657ef06a59ce6dc5db
 
 
 
@@ -35,9 +53,16 @@ class test_order_nl(unittest.TestCase, start_webdriver):
         self.ran = random.randrange(2, 8)
 
 
+<<<<<<< HEAD
         # add self.products ( connect to mysql )
         #self.products = self.product_form_bd()
         #self.product = self.products.connect_to_mysql()
+=======
+        #product = ["6003-0072-N1011"]
+        # add products ( connect to mysql )
+        products = product_form_bd()
+        product = products.connect_to_mysql()
+>>>>>>> 62124b8d50bdf3fcc2059f657ef06a59ce6dc5db
         # close connect :)
 
         self.product = ["6004-0577-001-N1502", "6040-0063-001-N1405", "6282-0017-N1109",
@@ -103,8 +128,13 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                     Select(self.driver.find_element(By.ID, "parentId-ideal")).select_by_value('{}'.format(pmideal))
                     time.sleep(2)
                     self.xpath(buy_button)
+<<<<<<< HEAD
                     #self.driver.get("http://futurumshop.nl")
 
+=======
+                    self.driver.get("http://futurumshop.nl")
+                    time.sleep(3)
+>>>>>>> 62124b8d50bdf3fcc2059f657ef06a59ce6dc5db
 
 
 
@@ -118,7 +148,11 @@ class test_order_nl(unittest.TestCase, start_webdriver):
 
                 for pmogonestd in self.paymethodnl[pmname]:
 
+<<<<<<< HEAD
                     self.send_to_id(search, (random.choice(self.product)))
+=======
+                    self.send_to_id(search, (random.choice(product)))
+>>>>>>> 62124b8d50bdf3fcc2059f657ef06a59ce6dc5db
                     self.xpath(add_to_card)
                     #steps PM
                     self.xpath(go_card)
@@ -126,7 +160,12 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                     self.click_by_id(choose_default)
                     self.xpath(go_pm_page)
 
+<<<<<<< HEAD
                     Select(self.driver.find_element_by_id("parentId-ideal")).select_by_value('{}'.format(pmogonestd))
+=======
+                    self.click_by_id('ogonestd')
+                    Select(self.driver.find_element(By.ID, "parentId-ogonestd")).select_by_value('{}'.format(pmogonestd))
+>>>>>>> 62124b8d50bdf3fcc2059f657ef06a59ce6dc5db
                     self.xpath(buy_button)
 
 
