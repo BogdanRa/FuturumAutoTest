@@ -1,11 +1,24 @@
 
+# NL
 search = "fc_search"
-add_to_card = "(//div[@id='selectedProduct']//div/button)[2]"
+add_to_card = "(//div[@id='selectedProduct']//button)[2]"
 go_card = "//div[@class='cartHeader']//a"
-two_step_in_card = "(//button[@class='btncta icon buy large checkout'])[1]"
+two_step_in_card = "(//div[@id='content']//button)[1]"
 choose_default = "default"
-go_pm_page = "(//form[@id='orderForm']//button)[1]"
-buy_button = "(//button[@class='btncta icon buy large orderButton nextstep checkout'])[1]"
+go_pm_page = "(//div[@id='content']//button)[1]"
+buy_button = "//span[@class='paymentOptions active']/button"
 
 
+
+# DE
+
+uberweisung = "(//input[@class='paymentmethod'])[2]"
+paypal = 'paypal'
+sofort = 'sofort'
+visa = 'visa'
+mastercard= 'mastercard'
+aexpress = 'aexpress'
+nachnahme = 'nachnahme'
+
+agree = "//input[@id='agree']"
 

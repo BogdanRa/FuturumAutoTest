@@ -8,7 +8,7 @@ class test_vendor(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.set_window_size(1900, 1900)
-        self.driver.get('http://futurumshop.nl')
+        self.driver.get('http://testing.futurumshop.nl')
 
     def test_broken_linkvendor_in_footer(self):
 
