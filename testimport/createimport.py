@@ -1,42 +1,35 @@
 from random import *
+from faker import Faker
+'''
+Creating import file with 7 important columns (vendorID, productID, vendorName,  productName, adviesprijs, verkoopprijs, product stock) 
+for a little import's test. 
+
+p.s.
+need some refactoring
+'''
+
+#make massive with a vendors name	
+#make a product name
+Namegenerator = Faker()
 
 
-vendors = open('/home/bohdan/new/testimport/vendorname', 'r')
-vendorsname = []
-for ven in vendors:
-	vendorsname.append(ven.replace('\n', ''))
-vendors.close()
+#product stock
+productstock = ['2-6 werkdagen', 'ja, op voorraad', 'Onbekende levertijd', 'week 1',
+				'week 10', 'week 11', 'week 12', 'week 13']
 
-product = open ('/home/bohdan/new/testimport/productsname', 'r')
-productsname = []
-
-for pr in product:
-	
-	productsname.append(pr.replace('\n', ''))
-product.close()
-
-
-stocks = open ('/home/bohdan/new/testimport/stock', 'r')
-productstock = []
-
-for prs in stocks:
-	
-	productstock.append(prs.replace('\n', ''))
-stocks.close()
-
-
-
-
-imports = open ('/home/bohdan/new/testimport/import.txt', 'w')
+#creating import file with 7 columns (vendorID, productID, vendorName,  productName, adviesprijs, verkoopprijs, product stock)
+imports = open ('/home/bohdan/importfile/import.txt', 'w') 
 for count in range(1, 10):
-		id1 = randint(1000, 9999)
-		id2 = randint(1000, 9999)
-		id3 = randint(1000, 9999)
-		id4 = randint(1000, 9999)
+		partproductid1 = randint(1000, 9999)
+		partproductid2 = randint(1000, 9999)
+		partproductid3 = randint(1000, 9999)
+		partproductid4 = randint(1000, 9999)
 		vendorsecondint = randint(1000, 9999)
 		adviesprijs = randint(10, 200)
-		verkoopprijs = adviesprijs + 20
- 		imports.write("{}-{}-{}-N{}\t{}-{}\t{}\t{}\t{}\t{}\t{}\n".format(id1, id2, id3, id4, id1, vendorsecondint, choice(productsname), choice(vendorsname), adviesprijs, verkoopprijs, choice(productstock))),
+		verkoopprijs = adviesprijs + 20		
+ 		imports.write("{}-{}-{}-N{}\t{}-{}\t{}\t{}\t{}\t{}\t{}\n".format(partproductid1, partproductid2, partproductid3, partproductid4, partproductid1, 
+ 										vendorsecondint, Namegenerator.name(), Namegenerator.username(), adviesprijs, verkoopprijs, choice(productstock))),
+print "File was created successfuly "
 imports.close()
 
 
