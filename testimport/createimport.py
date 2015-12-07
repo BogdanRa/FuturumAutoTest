@@ -1,12 +1,8 @@
 from random import *
-
 from faker import Faker
 '''
 Creating import file with 7 important columns (vendorID, productID, vendorName,  productName, adviesprijs, verkoopprijs, product stock) 
 for a little import's test. 
-
-p.s.
-need some refactoring
 '''
 
 #make massive with a vendors name	
@@ -28,8 +24,10 @@ for count in range(0, int(count)):
 		vendorsecondint = randint(1000, 9999)
 		adviesprijs = randint(10, 200)
 		verkoopprijs = adviesprijs + 20		
- 		imports.write("{}-{}-{}-N{}\t{}-{}\t{}\t{}\t{}\t{}\t{}\n".format(partproductid1, partproductid2, partproductid3, partproductid4, partproductid1, 
- 										vendorsecondint, Namegenerator.name(), Namegenerator.username(), adviesprijs, verkoopprijs, choice(productstock))),
+ 		imports.write("{}-{}-{}-N{}\t{}-{}\t{}\t{}\t{}\t{}\t{}\n".format(
+ 							partproductid1, partproductid2, partproductid3, partproductid4, partproductid1, 
+ 							vendorsecondint, Namegenerator.name(), Namegenerator.username(), adviesprijs, verkoopprijs, choice(productstock))),
+
 print "File was created successfuly with",count+1,"products"
 
 imports.close()
