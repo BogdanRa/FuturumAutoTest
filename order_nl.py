@@ -13,15 +13,9 @@ class test_order_nl(unittest.TestCase, start_webdriver):
 
     def setUp(self):
 
-        # prepare browsing and webdriver for work
         self.start_and_login()
-
-        # done
-        
-
         self.paymethodnl = {"ideal":[ "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U"],
                           "paypal": 'paypal', "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
-
 
         self.ran = random.randrange(2, 8)
        
@@ -39,8 +33,6 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                 time.sleep(2)
                 self.click_by_xpath(add_to_card)
 
-
-            # steps PM
             self.click_by_xpath(go_card)
             time.sleep(2)
             self.click_by_xpath(two_step_in_card)
@@ -49,9 +41,6 @@ class test_order_nl(unittest.TestCase, start_webdriver):
             time.sleep(2)
             self.click_by_xpath(go_pm_page)
             
-
-
-
 
 
             if pmname == "ideal":
@@ -79,12 +68,6 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                     self.click_by_xpath("//button[@class='btncta icon buy large checkout pull-right']")
                     time.sleep(2)
                     self.driver.get("http://futurumshop.nl")
-
-
-
-
-
-
 
 
 
@@ -116,7 +99,6 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                     self.click_by_xpath("//button[@class='btncta icon buy large checkout pull-right']")
                     time.sleep(2)
                     self.driver.get("http://futurumshop.nl")
-
 
 
             else:
