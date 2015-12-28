@@ -1,7 +1,5 @@
 from startwork import start_webdriver
-from selenium.common.exceptions import NoSuchElementException, UnexpectedAlertPresentException
 from selenium.webdriver.support.select import Select
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import unittest
 import random
@@ -133,14 +131,5 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                     self.driver.get("http://futurumshop.nl")
 
 
-
-
-
-
-
-
-
-
-
-    #def tearDown(self):
-    #    self.driver.quit()
+    def tearDown(self):
+        self.driver.quit()
