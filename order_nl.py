@@ -24,10 +24,6 @@ class test_order_nl(unittest.TestCase, start_webdriver):
         self.paymethodnl = {"ideal":[ "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U"],
                           "paypal": 'paypal', "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
 
-        #self.paymethod = {"ideal":[ "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U", "FVLBNL22"],"paypal": 'paypal',
-        #                  "ogonestd":["visa", "aexpress", "mastercard"], "overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
-
-
 
         self.ran = random.randrange(2, 8)
        
