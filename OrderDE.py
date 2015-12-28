@@ -1,9 +1,8 @@
 # coding=utf-8
 from startwork import start_webdriver
-from selenium.webdriver.common.by import By
 import unittest
 import random
-from  Button_from_fo import *
+from Button_from_fo import *
 import time
 
 
@@ -38,7 +37,6 @@ class test_orderDE(unittest.TestCase, start_webdriver):
             self.click_by_xpath(go_pm_page)
 
             time.sleep(2)
-            print (pmname)
             self.click_by_id('{}'.format(pmname))
             time.sleep(2)
             self.click_by_xpath(buy_button)
