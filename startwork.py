@@ -8,9 +8,12 @@ class start_webdriver():
 
     def start_and_login(self):
         self.driver = webdriver.Chrome()
-        self.driver.get("http://futurumshop.nl")
+        self.driver.get("http://futurumshop.nl/zoeken/?q=")
         self.driver.set_window_size(2000, 2000)
-
+        self.product = []
+        products = self.driver.find_elements(By.XPATH, "//li[@class='row product']")
+        for i in products:
+	        self.product.append(i.get_attribute('id'))
         self.driver.find_element_by_xpath("//a[@class='loginLink']").click()
         time.sleep(2)
         logname = self.driver.find_element_by_xpath("//input[@id='regid']")
