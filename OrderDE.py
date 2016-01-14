@@ -1,9 +1,7 @@
 # coding=utf-8
-from startwork import start_webdriver
-import unittest
-import random
+from startwork import *
 from Button_from_fo import *
-import time
+
 
 
 
@@ -45,5 +43,7 @@ class test_orderDE(unittest.TestCase, start_webdriver):
             time.sleep(2)
             self.click_by_xpath("//button[@class='btncta icon buy large checkout pull-right']")
             time.sleep(2)
-            self.driver.get("http://futurumshop.de")
+            self.driver.get(urlDE)
 
+    def tearDown(self):
+        self.driver.quit()
