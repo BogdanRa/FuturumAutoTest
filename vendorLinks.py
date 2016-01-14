@@ -1,10 +1,6 @@
-import assertEquals as assertEquals
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
 from startwork import *
-import unittest
-import time
+
+
 
 
 class vendorLinks(unittest.TestCase):
@@ -14,7 +10,7 @@ class vendorLinks(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.get('http://futurumshop.nl')
         self.driver.set_window_size(2000, 2000)
-        time.sleep(3)
+
 
     def test_vendorLinks(self):
 
