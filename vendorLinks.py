@@ -28,7 +28,7 @@ class vendorLinks(unittest.TestCase):
 
                 #if len(self.driver.find_elements(By.XPATH, "//ul[@class='col-xs-12']/li")) == 0:
                 if self.driver.title in 'Futurumshop | Specialist in Fietsen,Hardlopen,Buitensport':
-                    print self.vendorFooter[breadcrumbs],'empty url'
+                    print self.vendorFooter[breadcrumbs],'empty url' 
 
 
 
