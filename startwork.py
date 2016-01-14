@@ -1,6 +1,10 @@
 from selenium import webdriver
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from Button_from_fo import *
+import unittest
+import random
 import time
 
 
@@ -8,7 +12,8 @@ class start_webdriver():
 
     def start_and_login(self):
         self.driver = webdriver.Chrome()
-        self.driver.get("http://futurumshop.nl/zoeken/?q=")
+        self.driver.implicitly_wait(10)
+        self.driver.get(urlNL)
         self.driver.set_window_size(2000, 2000)
         self.product = []
         products = self.driver.find_elements(By.XPATH, "//li[@class='row product']")
@@ -23,8 +28,9 @@ class start_webdriver():
 
     def start_work_DE(self):
         self.driver = webdriver.Chrome()
-        self.driver.get("http://futurumshop.de/suche/?q=")
+        self.driver.get(urlDE)
         self.driver.set_window_size(2000, 2000)
+        self.driver.implicitly_wait(10)
         self.product = []
         products = self.driver.find_elements(By.XPATH, "//li[@class='row product']")
         for item in products:
@@ -53,5 +59,8 @@ class start_webdriver():
         self.driver.find_element(By.XPATH, xpath).send_keys(value, Keys.ENTER)
 
 
+    def find_xpath(self, xpath):
+        self.driver.find_element(By.XPATH, xpath)
 
-
+    def find_xpaths(self, xpath):
+        self.driver.find_elements(By.XPATH, xpath)
