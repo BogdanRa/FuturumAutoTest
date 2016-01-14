@@ -17,7 +17,7 @@ class test_order_nl(unittest.TestCase, start_webdriver):
         self.paymethodnl = {"ideal":[ "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U"],
                           "paypal": 'paypal', "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
 
-        self.ran = random.randrange(2, 8)
+        self.ran = random.randrange(2, 3)
        
 
     def test_ordernl(self):
@@ -62,7 +62,6 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                     idealss = self.driver.find_element(By.XPATH, "//select[@id='parentId-ideal']")
                     Select(idealss).select_by_value('{}'.format(pmideal))
                     time.sleep(2)
-                    print("begin")
                     self.click_by_xpath(buy_button)
                     time.sleep(2)
                     self.click_by_xpath("//button[@class='btncta icon buy large checkout pull-right']")
@@ -93,7 +92,6 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                     ogone = self.driver.find_element(By.XPATH, "//select[@id='parentId-ogonestd']")
                     Select(ogone).select_by_value('{}'.format(pmogonestd))
                     time.sleep(2)
-                    print("begin")
                     self.click_by_xpath(buy_button)
                     time.sleep(2)
                     self.click_by_xpath("//button[@class='btncta icon buy large checkout pull-right']")
