@@ -1,10 +1,7 @@
-from startwork import start_webdriver
-from selenium.webdriver.support.select import Select
-from selenium.webdriver.common.by import By
-import unittest
-import random
+from startwork import *
 from  Button_from_fo import *
-import time
+import random
+
 
 
 
@@ -45,7 +42,7 @@ class test_order_nl(unittest.TestCase, start_webdriver):
 
             if pmname == "ideal":
                 for pmideal in self.paymethodnl[pmname]:
-                    self.driver.get("http://futurumshop.nl")
+                    self.driver.get(urlNL)
                     time.sleep(2)
                     self.send_keys_id(search, (random.choice(self.product)))
                     time.sleep(2)
@@ -66,14 +63,14 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                     time.sleep(2)
                     self.click_by_xpath("//button[@class='btncta icon buy large checkout pull-right']")
                     time.sleep(2)
-                    self.driver.get("http://futurumshop.nl")
+                    self.driver.get(urlNL)
 
 
 
             elif pmname == 'ogonestd':
 
                 for pmogonestd in self.paymethodnl[pmname]:
-                    self.driver.get("http://futurumshop.nl")
+                    self.driver.get(urlNL)
                     time.sleep(2)
                     self.send_keys_id(search, (random.choice(self.product)))
                     time.sleep(2)
@@ -96,7 +93,7 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                     time.sleep(2)
                     self.click_by_xpath("//button[@class='btncta icon buy large checkout pull-right']")
                     time.sleep(2)
-                    self.driver.get("http://futurumshop.nl")
+                    self.driver.get(urlNL)
 
 
             else:
@@ -108,7 +105,7 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                     time.sleep(2)
                     self.click_by_xpath("//button[@class='btncta icon buy large checkout pull-right']")
                     time.sleep(2)
-                    self.driver.get("http://futurumshop.nl")
+                    self.driver.get(urlNL)
 
 
     def tearDown(self):
