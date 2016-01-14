@@ -1,3 +1,7 @@
+urlNL = "http://futurumshop.nl/zoeken/?q="
+urlDE = "http://futurumshop.de/suche/?q="
+
+
 
 # NL
 search = "fc_search"
