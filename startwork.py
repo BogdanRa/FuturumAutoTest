@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -10,11 +11,22 @@ import time
 
 class start_webdriver():
 
+
+    def openbrowser(self):
+        self.driver = webdriver.Chrome()
+        self.driver.get(urlNL)
+        self.driver.maximize_window()
+
+    def openbrowserDE(self):
+        self.driver = webdriver.Chrome()
+        self.driver.get(urlDE)
+        self.driver.maximize_window()
+
     def start_and_login(self):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(10)
         self.driver.get(urlNL)
-        self.driver.set_window_size(2000, 2000)
+        self.driver.maximize_window()
         self.product = []
         products = self.driver.find_elements(By.XPATH, "//li[@class='row product']")
         for item in products:
@@ -29,7 +41,7 @@ class start_webdriver():
     def start_work_DE(self):
         self.driver = webdriver.Chrome()
         self.driver.get(urlDE)
-        self.driver.set_window_size(2000, 2000)
+        self.driver.maximize_window()
         self.driver.implicitly_wait(10)
         self.product = []
         products = self.driver.find_elements(By.XPATH, "//li[@class='row product']")
@@ -64,3 +76,9 @@ class start_webdriver():
 
     def find_xpaths(self, xpath):
         self.driver.find_elements(By.XPATH, xpath)
+
+    def clear(self, id):
+        self.driver.find_element(By.ID, id).clear()
+
+
+

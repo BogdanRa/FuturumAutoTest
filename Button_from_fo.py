@@ -1,6 +1,7 @@
-urlNL = "http://futurumshop.nl/zoeken/?q="
+urlNL = "http://futurumshop.nl/zoeken/?sortBy[price]=asc&itemPerPage=50"
 urlDE = "http://futurumshop.de/suche/?q="
-
+#urlNL = "https://acceptance.futurumshop.nl/zoeken/?q="
+#urlDE = "https://acceptance.futurumshop.de/suche/?q="
 
 
 # NL

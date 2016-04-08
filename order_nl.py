@@ -12,7 +12,7 @@ class test_order_nl(unittest.TestCase, start_webdriver):
 
         self.start_and_login()
         self.paymethodnl = {"ideal":[ "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U"],
-                          "paypal": 'paypal', "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash": 'mistercash'}
+                         "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash":'mistercash'} #"paypal": 'paypal',
 
         self.ran = random.randrange(2, 3)
        
@@ -110,3 +110,7 @@ class test_order_nl(unittest.TestCase, start_webdriver):
 
     def tearDown(self):
         self.driver.quit()
+
+
+
+

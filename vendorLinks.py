@@ -3,13 +3,11 @@ from startwork import *
 
 
 
-class vendorLinks(unittest.TestCase):
+class vendorLinks(start_webdriver, unittest.TestCase):
 
 
     def setUp(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get('http://futurumshop.nl')
-        self.driver.set_window_size(2000, 2000)
+       	self.openbrowser()
 
 
     def test_vendorLinks(self):

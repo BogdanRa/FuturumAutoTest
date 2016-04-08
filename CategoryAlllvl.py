@@ -21,7 +21,7 @@ class CheckCategory(start_webdriver, unittest.TestCase):
             try:
                 banner = self.driver.find_element(By.XPATH, "//div[@class='row row--small-gutter'][1]/div[1]")
                 if banner.is_displayed():
-                    print "category redirect to main page ", url
+                    print "-> ", url
 
             except NoSuchElementException:
                 pass
