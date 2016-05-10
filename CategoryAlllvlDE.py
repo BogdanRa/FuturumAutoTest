@@ -1,5 +1,5 @@
 from startwork import *
-
+#!/usr/bin/env python
 
 class CheckCategory(start_webdriver, unittest.TestCase):
 

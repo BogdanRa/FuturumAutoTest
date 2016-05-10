@@ -1,5 +1,5 @@
 # coding=utf-8
-
+#!/usr/bin/env python
 
 from startwork import *
 from Button_from_fo import *
