@@ -22,9 +22,9 @@ class test_order_nl(unittest.TestCase, start_webdriver):
 
         for pmname in self.paymethodnl:
 
-            for totalproductincart in range(0, self.ran):
+            #for totalproductincart in range(0, self.ran):
 
-                self.generatecart() # Generate cart with products from first search page ( Default sorting )
+            self.generatecart() # Generate cart with products from first search page ( Default sorting )
             self.verificationsteps() # Choose delivery and payment method
             
 
@@ -36,6 +36,7 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                     self.generatecart()
                     self.verificationsteps()
                     time.sleep(2)
+
                     #self.click_by_id('ideal')
                     idealss = self.driver.find_element(By.XPATH, "//select[@id='parentId-ideal']")
                     Select(idealss).select_by_value('{}'.format(pmideal))

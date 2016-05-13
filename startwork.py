@@ -27,7 +27,8 @@ class start_webdriver():
         self.product = []
         products = self.driver.find_elements(By.XPATH, "//li[@class='row product']")
         for item in products:
-	        self.product.append(item.get_attribute('id'))
+            if item.get_attribute('id') != '6100-0148-001-N1311':
+                self.product.append(item.get_attribute('id'))
         self.driver.find_element_by_xpath("//a[@class='loginLink']").click()
         time.sleep(2)
         logname = self.driver.find_element_by_xpath("//input[@id='regid']")
@@ -94,5 +95,7 @@ class start_webdriver():
 
 
     def generatecart(self): # Generate cart with products from first search page ( Default sorting )
-        self.send_keys_id(search, (random.choice(self.product)))
-        self.click_by_xpath(add_to_card)
+        time.sleep(2)
+        for totalproductincart in range(0, self.ran):
+            self.send_keys_id(search, (random.choice(self.product)))
+            self.click_by_xpath(add_to_card)

@@ -22,7 +22,7 @@ class test_ordernlwithpin(unittest.TestCase, start_webdriver):
         for method in self.deliverymethod:
             for pmname in self.paymethodnl:
 
-                for x in range(0, self.ran):
+                for x in range(0, self.ran): # Remove this
 
 
                     self.generatecart()
@@ -37,6 +37,7 @@ class test_ordernlwithpin(unittest.TestCase, start_webdriver):
                         self.generatecart()
                         self.PINdelivery(self.deliverymethod[method])
 
+                        time.sleep(2)
                         idealss = self.driver.find_element(By.XPATH, "//select[@id='parentId-ideal']")
                         Select(idealss).select_by_value('{}'.format(pmideal))
 
