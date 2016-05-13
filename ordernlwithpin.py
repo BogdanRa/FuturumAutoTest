@@ -10,11 +10,11 @@ class test_ordernlwithpin(unittest.TestCase, start_webdriver):
 
     def setUp(self):
 
-        self.StartAndLogin()
+        self.StartAndLogin(urlNL)
         self.paymethodnl = {"ideal":[ "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U"],
                          "ogonestd":["visa", "aexpress", "mastercard"],"pin": 'pin', "mistercash":'mistercash'} #"paypal": 'paypal',
         self.deliverymethod ={"internamsterdam": 'internamsterdam', "internapeldoorn": 'internapeldoorn'}
-        self.ran = random.randrange(2, 3)
+
 
 
     def test_ordernl(self):

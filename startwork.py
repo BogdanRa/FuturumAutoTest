@@ -34,7 +34,7 @@ class start_webdriver():
         logname.send_keys("futurumshop123@gmail.com")
         password = self.driver.find_element(By.ID, "password")
         password.send_keys("zxczxc", Keys.ENTER)
-
+        self.ran = random.randrange(2, 4) # Product in cart
 
     def click_by_xpath(self, xpath):
 

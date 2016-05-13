@@ -10,14 +10,14 @@ class test_orderDE(unittest.TestCase, start_webdriver):
     def setUp(self):
         self.StartAndLogin(urlDE)
         self.paymethodde = ['visa', 'mastercard', 'aexpress']
-        self.ran = random.randrange(2, 4)
+
 
     def test_orderde(self):
 
         try:
             for pmname in self.paymethodde:
 
-                for totalproductincart in range(self.ran):
+                for totalproductincart in range(0, self.ran):
                     self.generatecart()
                 self.verificationsteps()
 
