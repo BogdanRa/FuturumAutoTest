@@ -99,3 +99,13 @@ class start_webdriver():
         for totalproductincart in range(0, self.ran):
             self.send_keys_id(search, (random.choice(self.product)))
             self.click_by_xpath(add_to_card)
+
+    def PMideal(self, ideal):
+        idealss = self.driver.find_element(By.XPATH, "//select[@id='parentId-ideal']")
+        Select(idealss).select_by_value('{}'.format(ideal))
+
+    def PMogone(self, ogones):
+        self.click_by_id('ogonestd')
+        time.sleep(2)
+        ogone = self.driver.find_element(By.XPATH, "//select[@id='parentId-ogonestd']")
+        Select(ogone).select_by_value('{}'.format(ogones))

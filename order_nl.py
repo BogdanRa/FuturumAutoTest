@@ -36,11 +36,7 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                     self.generatecart()
                     self.verificationsteps()
                     time.sleep(2)
-
-                    #self.click_by_id('ideal')
-                    idealss = self.driver.find_element(By.XPATH, "//select[@id='parentId-ideal']")
-                    Select(idealss).select_by_value('{}'.format(pmideal))
-
+                    self.PMideal(pmideal)
                     self.placeorder() # Place order on FO
 
 
@@ -51,12 +47,7 @@ class test_order_nl(unittest.TestCase, start_webdriver):
                     self.driver.get(urlNL)
                     self.generatecart()
                     self.verificationsteps()
-
-
-                    self.click_by_id('ogonestd')
-                    ogone = self.driver.find_element(By.XPATH, "//select[@id='parentId-ogonestd']")
-                    Select(ogone).select_by_value('{}'.format(pmogonestd))
-
+                    self.PMogone(pmogonestd)
                     self.placeorder()
 
 
