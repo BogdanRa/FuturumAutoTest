@@ -74,7 +74,11 @@ class start_webdriver():
         self.wait.until(EC.element_to_be_clickable((By.ID, id)))
         self.driver.find_element(By.ID, id).clear()
 
-
+    def PINdelivery(self, delivery):
+         self.click_by_xpath(go_card)
+         self.click_by_xpath(two_step_in_card)
+         self.click_by_id(delivery)
+         self.click_by_xpath(go_pm_page)
 
     def verificationsteps(self): # Choose delivery and payment method
         self.click_by_xpath(go_card)
