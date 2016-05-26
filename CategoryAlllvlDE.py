@@ -1,12 +1,11 @@
 from startwork import *
-#!/usr/bin/env python
+
+
+# !/usr/bin/env python
 
 class CheckCategory(start_webdriver, unittest.TestCase):
-
-
     def setUp(self):
         self.openbrowserDE()
-
 
     def testLinkscategory(self):
         category = self.driver.find_elements(By.XPATH, "//li[@class='top_menu_element inactive']/*//a")
@@ -27,4 +26,4 @@ class CheckCategory(start_webdriver, unittest.TestCase):
                 pass
 
     def tearDown(self):
-       self.driver.quit()
+        self.driver.quit()
