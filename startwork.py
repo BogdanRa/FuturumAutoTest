@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 
-from Button_from_fo import *
+from config.config import *
 import unittest
 import random
 import time
@@ -29,9 +29,9 @@ class start_webdriver():
         self.driver.find_element_by_xpath("//a[@class='loginLink']").click()
         time.sleep(2)
         logname = self.driver.find_element_by_xpath("//input[@id='regid']")
-        logname.send_keys("futurumshop123@gmail.com")
+        logname.send_keys(customerLogin)
         password = self.driver.find_element(By.ID, "password")
-        password.send_keys("zxczxc", Keys.ENTER)
+        password.send_keys(customerPassword, Keys.ENTER)
         self.ran = random.randrange(2, 4)  # Product in cart
 
     def click_by_xpath(self, xpath):

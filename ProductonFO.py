@@ -1,5 +1,5 @@
 from startwork import *
-from Button_from_fo import *
+from config.config import *
 
 
 class productscheck_test(unittest.TestCase, start_webdriver):

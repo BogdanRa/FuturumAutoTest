@@ -2,7 +2,7 @@
 # !/usr/bin/env python
 
 from startwork import *
-from Button_from_fo import *
+from config.config import *
 
 
 class test_orderDE(unittest.TestCase, start_webdriver):
