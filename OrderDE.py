@@ -1,16 +1,14 @@
 # coding=utf-8
-#!/usr/bin/env python
+# !/usr/bin/env python
 
 from startwork import *
-from Button_from_fo import *
+from config.config import *
 
 
 class test_orderDE(unittest.TestCase, start_webdriver):
-
     def setUp(self):
         self.StartAndLogin(urlDE)
         self.paymethodde = ['visa', 'mastercard', 'aexpress']
-
 
     def test_orderde(self):
 
@@ -20,7 +18,6 @@ class test_orderDE(unittest.TestCase, start_webdriver):
                 for totalproductincart in range(0, self.ran):
                     self.generatecart()
                 self.verificationsteps()
-
 
                 self.click_by_id('{}'.format(pmname))
                 self.click_by_xpath(buy_button)
@@ -32,10 +29,5 @@ class test_orderDE(unittest.TestCase, start_webdriver):
         except NoSuchElementException:
             print ("last element not found")
 
-
-
     def tearDown(self):
         self.driver.quit()
-
-
-

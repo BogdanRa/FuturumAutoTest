@@ -1,4 +1,3 @@
-
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
@@ -7,15 +6,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 
-from Button_from_fo import *
+from config.config import *
 import unittest
 import random
 import time
 
 
 class start_webdriver():
-
-
     def openbrowser(self, urls):
         self.driver = webdriver.Chrome()
         self.driver.get(urls)
@@ -32,10 +29,10 @@ class start_webdriver():
         self.driver.find_element_by_xpath("//a[@class='loginLink']").click()
         time.sleep(2)
         logname = self.driver.find_element_by_xpath("//input[@id='regid']")
-        logname.send_keys("futurumshop123@gmail.com")
+        logname.send_keys(customerLogin)
         password = self.driver.find_element(By.ID, "password")
-        password.send_keys("zxczxc", Keys.ENTER)
-        self.ran = random.randrange(2, 4) # Product in cart
+        password.send_keys(customerPassword, Keys.ENTER)
+        self.ran = random.randrange(2, 4)  # Product in cart
 
     def click_by_xpath(self, xpath):
 
@@ -47,22 +44,19 @@ class start_webdriver():
         self.wait.until(EC.element_to_be_clickable((By.ID, id)))
         self.driver.find_element_by_id(id).click()
 
-
     def send_keys_id(self, id, value):
         time.sleep(2)
-        #self.wait.until(EC.element_to_be_clickable((By.ID, id)))
+        # self.wait.until(EC.element_to_be_clickable((By.ID, id)))
         self.driver.find_element(By.ID, id).send_keys(value, Keys.ENTER)
-
 
     def send_keys_xpath(self, xpath, value):
 
         self.wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
         self.driver.find_element(By.XPATH, xpath).send_keys(value, Keys.ENTER)
 
-
     def find_xpath(self, xpath):
 
-        #self.wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
+        # self.wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
         self.driver.find_element(By.XPATH, xpath)
 
     def find_xpaths(self, xpath):
@@ -76,25 +70,24 @@ class start_webdriver():
         self.driver.find_element(By.ID, id).clear()
 
     def PINdelivery(self, delivery):
-         self.click_by_xpath(go_card)
-         self.click_by_xpath(two_step_in_card)
-         self.click_by_id(delivery)
-         self.click_by_xpath(go_pm_page)
+        self.click_by_xpath(go_card)
+        self.click_by_xpath(two_step_in_card)
+        self.click_by_id(delivery)
+        self.click_by_xpath(go_pm_page)
 
-    def verificationsteps(self): # Choose delivery and payment method
+    def verificationsteps(self):  # Choose delivery and payment method
         self.click_by_xpath(go_card)
         self.click_by_xpath(two_step_in_card)
         self.click_by_id(choose_default)
         self.click_by_xpath(go_pm_page)
 
-    def placeorder(self): # Place order on FO
+    def placeorder(self):  # Place order on FO
         self.click_by_xpath(buy_button)
         self.click_by_xpath("//button[@class='btncta icon buy large checkout pull-right']")
         time.sleep(3)
         self.driver.get(urlNL)
 
-
-    def generatecart(self): # Generate cart with products from first search page ( Default sorting )
+    def generatecart(self):  # Generate cart with products from first search page ( Default sorting )
         time.sleep(2)
         for totalproductincart in range(0, self.ran):
             self.send_keys_id(search, (random.choice(self.product)))
