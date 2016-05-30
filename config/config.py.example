@@ -38,3 +38,6 @@ aexpress = 'aexpress'
 nachnahme = 'nachnahme'
 
 agree = "//input[@id='agree']"
+
+#testimport
+import_filepath = "/home/username/importpath/import.txt"
