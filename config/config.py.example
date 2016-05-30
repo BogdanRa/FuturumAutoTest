@@ -1,8 +1,8 @@
 # Database settings
-host = 'localhost'
-username = 'username'
-password = 'password'
-database = 'futurum'
+db_host = 'localhost'
+db_username = 'username'
+db_password = 'password'
+db_database = 'futurum'
 
 # Shop settings
 url = 'http://www.futurumshop.nl'
@@ -29,7 +29,6 @@ internamsterdam = "internamsterdam"
 internapeldoorn = "internapeldoorn"
 
 # DE
-
 uberweisung = "(//input[@class='paymentmethod'])[2]"
 paypal = 'paypal'
 sofort = 'sofort'
@@ -39,3 +38,6 @@ aexpress = 'aexpress'
 nachnahme = 'nachnahme'
 
 agree = "//input[@id='agree']"
+
+#testimport
+import_filepath = "/home/username/importpath/import.txt"
