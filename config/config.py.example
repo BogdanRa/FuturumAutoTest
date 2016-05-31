@@ -1,8 +1,19 @@
-urlNL = "http://futurumshop.nl/zoeken/?sortBy[price]=asc&itemPerPage=50"
-urlDE = "http://futurumshop.de/suche/?q="
-#urlNL = "https://acceptance.futurumshop.nl/zoeken/?q="
-#urlDE = "https://acceptance.futurumshop.de/suche/?q="
+# Database settings
+db_host = 'localhost'
+db_username = 'username'
+db_password = 'password'
+db_database = 'futurum'
 
+# Shop settings
+url = 'http://www.futurumshop.nl'
+
+# Search settings
+urlNL = "http://www.futurumshop.nl/zoeken/?sortBy[price]=asc&itemPerPage=50"
+urlDE = "http://www.futurumshop.de/suche/?q="
+
+# Customer settings
+customerLogin = 'username@local.com'
+customerPassword = 'password'
 
 # NL
 search = "fc_search"
@@ -12,27 +23,26 @@ two_step_in_card = "(//div[@id='content']//button)[1]"
 go_pm_page = "(//div[@id='content']//button)[1]"
 buy_button = "//span[@class='paymentOptions active']/button"
 
-
-#Delivery method
+# Delivery method
 choose_default = "default"
 internamsterdam = "internamsterdam"
 internapeldoorn = "internapeldoorn"
 
-
-
-
-
 # DE
-
 uberweisung = "(//input[@class='paymentmethod'])[2]"
 paypal = 'paypal'
 sofort = 'sofort'
 visa = 'visa'
-mastercard= 'mastercard'
+mastercard = 'mastercard'
 aexpress = 'aexpress'
 nachnahme = 'nachnahme'
 agree = "//input[@id='agree']"
 
+<<<<<<< HEAD:Button_from_fo.py
 
 #
 importfilepath = '/home/bohdan/importfile/import.txt'
+=======
+#testimport
+import_filepath = "/home/username/importpath/import.txt"
+>>>>>>> 2248dec632fcbf78afcb3b03ad99178bbfe2dcbc:config/config.py.example
