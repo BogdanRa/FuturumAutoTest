@@ -2,12 +2,8 @@
 # -*- coding: utf-8 -*-
 from random import *
 from faker import Faker
-<<<<<<< HEAD
-from FuturumAutoTest.Button_from_fo import *
-=======
 from config.config import *
 
->>>>>>> 2248dec632fcbf78afcb3b03ad99178bbfe2dcbc
 '''
 Creating import file with 7 important columns (vendorID, productID, vendorName,  productName, adviesprijs, verkoopprijs, product stock) 
 for a little import's test. 
@@ -19,24 +15,7 @@ Namegenerator = Faker()
 
 # count = raw_input("How many products are you need?: ")
 # product stock
-productstock = ['2-6 werkdagen', 'ja, op voorraad', 'Onbekende levertijd', 'week 1',
-<<<<<<< HEAD
-				'week 10', 'week 11', 'week 12', 'week 13']
-
-#creating import file with 7 columns (vendorID, productID, vendorName,  productName, adviesprijs, verkoopprijs, product stock)
-imports = open (importfilepath, 'w')
-vendors ={
-"NewVendor1": 1000,
-"NewVendor2": 2000,
-"NewVendor3": 3000,
-"NewVendor4": 4000,
-"Newvendor5": 5000}
-
-
-
-=======
-                'week 10', 'week 11', 'week 12', 'week 13']
->>>>>>> 2248dec632fcbf78afcb3b03ad99178bbfe2dcbc
+productstock = ['2-6 werkdagen', 'ja, op voorraad', 'Onbekende levertijd', 'week 1', 'week 10', 'week 11', 'week 12', 'week 13']
 
 # creating import file with 7 columns (vendorID, productID, vendorName,  productName, adviesprijs, verkoopprijs, product stock)
 imports = open(import_filepath, 'w')

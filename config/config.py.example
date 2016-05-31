@@ -38,11 +38,5 @@ aexpress = 'aexpress'
 nachnahme = 'nachnahme'
 agree = "//input[@id='agree']"
 
-<<<<<<< HEAD:Button_from_fo.py
-
-#
-importfilepath = '/home/bohdan/importfile/import.txt'
-=======
 #testimport
 import_filepath = "/home/username/importpath/import.txt"
->>>>>>> 2248dec632fcbf78afcb3b03ad99178bbfe2dcbc:config/config.py.example
