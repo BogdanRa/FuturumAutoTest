@@ -31,6 +31,8 @@ visa = 'visa'
 mastercard= 'mastercard'
 aexpress = 'aexpress'
 nachnahme = 'nachnahme'
-
 agree = "//input[@id='agree']"
 
+
+#
+importfilepath = '/home/bohdan/importfile/import.txt'

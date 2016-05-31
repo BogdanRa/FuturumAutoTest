@@ -5,7 +5,7 @@ class CheckCategory(start_webdriver, unittest.TestCase):
 
 
     def setUp(self):
-        self.openbrowserDE()
+        self.StartAndLogin(urlDE)
 
 
     def testLinkscategory(self):

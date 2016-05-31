@@ -1,4 +1,3 @@
-
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
@@ -6,35 +5,43 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
-
+import yaml
 from Button_from_fo import *
 import unittest
 import random
 import time
+import os
 
 
-class start_webdriver():
+
+class start_webdriver(unittest.TestCase):
 
 
-    def openbrowser(self, urls):
+    def openbrowser(self):
+        #open yaml file and append data
+        ymlfile = open(os.path.join("/home/bohdan/FuturumAutoTest/sandbox/yamltest.yml"), "r")
+        self.cfg = yaml.load(ymlfile)
+        for en in self.cfg['testenvr']:
+            print en
+
+        envr = raw_input("Which environment you want to use? " )
         self.driver = webdriver.Chrome()
-        self.driver.get(urls)
+        self.driver.get(self.cfg['testenvr'][envr])
         self.driver.maximize_window()
         self.wait = WebDriverWait(self.driver, 20)
 
-    def StartAndLogin(self, urls):
-        self.openbrowser(urls)
+    def StartAndLogin(self):
+        self.openbrowser()
         self.product = []
         products = self.driver.find_elements(By.XPATH, "//li[@class='row product']")
         for item in products:
-            if item.get_attribute('id') != '6100-0148-001-N1311':
-                self.product.append(item.get_attribute('id'))
+            self.product.append(item.get_attribute('id'))
         self.driver.find_element_by_xpath("//a[@class='loginLink']").click()
         time.sleep(2)
         logname = self.driver.find_element_by_xpath("//input[@id='regid']")
-        logname.send_keys("futurumshop123@gmail.com")
+        logname.send_keys(self.cfg['login']['user'])
         password = self.driver.find_element(By.ID, "password")
-        password.send_keys("zxczxc", Keys.ENTER)
+        password.send_keys(self.cfg['login']['pass'], Keys.ENTER)
         self.ran = random.randrange(2, 4) # Product in cart
 
     def click_by_xpath(self, xpath):

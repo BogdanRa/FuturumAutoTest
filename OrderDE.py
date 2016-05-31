@@ -5,17 +5,17 @@ from startwork import *
 from Button_from_fo import *
 
 
-class test_orderDE(unittest.TestCase, start_webdriver):
+class test_orderDE(start_webdriver):
 
     def setUp(self):
-        self.StartAndLogin(urlDE)
-        self.paymethodde = ['visa', 'mastercard', 'aexpress']
+        self.StartAndLogin()
+
 
 
     def test_orderde(self):
 
         try:
-            for pmname in self.paymethodde:
+            for pmname in self.cfg['PaymentmethodDE']:
 
                 for totalproductincart in range(0, self.ran):
                     self.generatecart()

@@ -7,7 +7,7 @@ class vendorLinks(start_webdriver, unittest.TestCase):
 
 
     def setUp(self):
-       	self.openbrowser()
+       	self.openbrowser(urlNL)
 
 
     def test_vendorLinks(self):

@@ -10,7 +10,7 @@ class test_order_nl(unittest.TestCase, start_webdriver):
 
     def setUp(self):
 
-        self.StartAndLogin(urlNL)
+        self.StartAndLogin()
         self.paymethodnl = {"ideal":[ "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U"],
                          "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash":'mistercash'} #"paypal": 'paypal',
 

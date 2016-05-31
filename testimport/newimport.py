@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from random import *
 from faker import Faker
+from FuturumAutoTest.Button_from_fo import *
 '''
 Creating import file with 7 important columns (vendorID, productID, vendorName,  productName, adviesprijs, verkoopprijs, product stock) 
 for a little import's test. 
@@ -17,7 +18,7 @@ productstock = ['2-6 werkdagen', 'ja, op voorraad', 'Onbekende levertijd', 'week
 				'week 10', 'week 11', 'week 12', 'week 13']
 
 #creating import file with 7 columns (vendorID, productID, vendorName,  productName, adviesprijs, verkoopprijs, product stock)
-imports = open ('/home/bohdan/importfile/import.txt', 'w') 
+imports = open (importfilepath, 'w')
 vendors ={
 "NewVendor1": 1000,
 "NewVendor2": 2000,

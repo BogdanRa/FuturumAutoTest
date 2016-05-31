@@ -49,6 +49,7 @@ class test_ordernlwithpin(unittest.TestCase, start_webdriver):
                         self.driver.get(urlNL)
                         self.generatecart()
                         self.PINdelivery(self.deliverymethod[method])
+                        time.sleep(2)
                         self.PMogone(pmogonestd)
                         self.placeorder()
 

@@ -1,0 +1,33 @@
+login:
+      user: 'futurumshop123@gmail.com'
+      pass: 'zxczxc'
+
+testenvr:
+      LiveNL: "http://futurumshop.nl/zoeken/?sortBy[price]=asc&itemPerPage=50"
+      LiveDE: "http://futurumshop.de/suche/?q="
+      AccNL: "https://acceptance.futurumshop.nl/zoeken/?q="
+      AccDE: "https://acceptance.futurumshop.de/suche/?q="
+      TestNL: "https://testing.futurumshop.nl/zoeken/?q="
+      TestDE: "https://testing.futurumshop.de/suche/?q="
+
+#button from FO
+button:
+      search: "fc_search"
+      add_to_card: "(//div[@id='selectedProduct']//button)[2]"
+      go_card: "//div[@class='cartHeader']//a"
+      two_step_in_card: "(//div[@id='content']//button)[1]"
+      go_pm_page: "(//div[@id='content']//button)[1]"
+      buy_button: "//span[@class='paymentOptions active']/button"
+
+
+# Deliverymethod
+Deliverymethod:
+      choose_default: "default"
+      internamsterdam: "internamsterdam"
+      internapeldoorn: "internapeldoorn"
+
+# Payment method
+PaymentmethodDE:
+      visa: 'visa'
+      mastercard: 'mastercard'
+      aexpress:  'aexpress'

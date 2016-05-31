@@ -1,11 +1,11 @@
 from startwork import *
 #!/usr/bin/env python
 
-class CheckCategory(start_webdriver, unittest.TestCase):
+class CheckCategory(start_webdriver):
 
 
     def setUp(self):
-        self.openbrowser(urlNL)
+        self.openbrowser()
 
 
     def testLinkscategory(self):
