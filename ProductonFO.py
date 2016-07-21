@@ -2,7 +2,7 @@ from startwork import *
 from config.config import *
 
 
-class productscheck_test(unittest.TestCase, start_webdriver):
+class productscheck_test(start_webdriver):
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.get('http://testing.futurumshop.nl')

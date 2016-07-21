@@ -3,10 +3,10 @@ from config.config import *
 import random
 
 
-class test_ordernlwithpin(unittest.TestCase, start_webdriver):
+class test_ordernlwithpin(start_webdriver):
     def setUp(self):
 
-        self.StartAndLogin(urlNL)
+        self.StartAndLogin()
         self.paymethodnl = {
             "ideal": ["ABNANL2A", "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U"],
             "ogonestd": ["visa", "aexpress", "mastercard"], "pin": 'pin',
@@ -24,7 +24,7 @@ class test_ordernlwithpin(unittest.TestCase, start_webdriver):
 
                 if pmname == "ideal":
                     for pmideal in self.paymethodnl[pmname]:
-                        self.driver.get(urlNL)
+                    	self.driver.get(self.cfg['testenvr']['LiveNL'])
                         self.generatecart()
                         self.PINdelivery(self.deliverymethod[method])
                         time.sleep(2)
@@ -34,7 +34,7 @@ class test_ordernlwithpin(unittest.TestCase, start_webdriver):
                 elif pmname == "ogonestd":
 
                     for pmogonestd in self.paymethodnl[pmname]:
-                        self.driver.get(urlNL)
+                    	self.driver.get(self.cfg['testenvr']['LiveNL'])
                         self.generatecart()
                         self.PINdelivery(self.deliverymethod[method])
                         time.sleep(2)

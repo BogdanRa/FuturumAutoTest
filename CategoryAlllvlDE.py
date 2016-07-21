@@ -4,9 +4,10 @@ from startwork import *
 
 
 
-class CheckCategory(start_webdriver, unittest.TestCase):
+class CheckCategory(start_webdriver):
     def setUp(self):
         self.StartAndLogin(urlDE)
+	self.openbrowser()
 
     def testLinkscategory(self):
         category = self.driver.find_elements(By.XPATH, "//li[@class='top_menu_element inactive']/*//a")

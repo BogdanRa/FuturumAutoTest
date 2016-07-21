@@ -3,7 +3,7 @@ from config.config import *
 import random
 
 
-class test_order_nl(unittest.TestCase, start_webdriver):
+class test_order_nl(start_webdriver):
     def setUp(self):
 
 
@@ -31,7 +31,7 @@ class test_order_nl(unittest.TestCase, start_webdriver):
 
             if pmname == "ideal":
                 for pmideal in self.paymethodnl[pmname]:
-                    self.driver.get(urlNL)
+                    self.driver.get(self.cfg['testenvr']['LiveNL'])
 
                     self.generatecart()
                     self.verificationsteps()
@@ -44,7 +44,7 @@ class test_order_nl(unittest.TestCase, start_webdriver):
             elif pmname == 'ogonestd':
 
                 for pmogonestd in self.paymethodnl[pmname]:
-                    self.driver.get(urlNL)
+                    self.driver.get(self.cfg['testenvr']['LiveNL'])
                     self.generatecart()
                     self.verificationsteps()
                     self.PMogone(pmogonestd)

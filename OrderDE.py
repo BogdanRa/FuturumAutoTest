@@ -29,7 +29,7 @@ class test_orderDE(unittest.TestCase, start_webdriver):
                 self.click_by_id('agree')
                 self.click_by_xpath("//button[@class='btncta icon buy large checkout pull-right']")
                 time.sleep(1)
-                self.driver.get(urlDE)
+                self.driver.get(self.cfg['testenvr']['LiveDE'])
 
         except NoSuchElementException:
             print ("last element not found")

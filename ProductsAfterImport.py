@@ -1,7 +1,7 @@
 from startwork import *
 from config.config import *
 
-class testProductAfterImpoert(unittest.TestCase, start_webdriver):
+class testProductAfterImpoert(start_webdriver):
     def setUp(self):
         self.openbrowser()
         self.fileproduct = open('prodlevid.txt', 'r')
