@@ -1,20 +1,12 @@
 from startwork import *
-from config.config import *
-import random
+
 
 
 class test_order_nl(start_webdriver):
     def setUp(self):
 
-
-        self.StartAndLogin()
-        self.paymethodnl = {"ideal":[ "ABNANL2A",  "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U"],
-                         "ogonestd":["visa", "aexpress", "mastercard"],"overboeking": 'overboeking', "rmbrs": 'rmbs', "mistercash":'mistercash'} #"paypal": 'paypal',
-
-
-
-        self.StartAndLogin(urlNL)
-        self.paymethodnl = {
+            self.StartAndLogin()
+            self.paymethodnl = {
             "ideal": ["ABNANL2A", "RABONL2U", "INGBNL2A", "KNABNL2H", "SNSBNL2A", "RBRBNL21", "ASNBNL21", "TRIONL2U"],
             "ogonestd": ["visa", "aexpress", "mastercard"], "overboeking": 'overboeking', "rmbrs": 'rmbs',
             "mistercash": 'mistercash'}  # "paypal": 'paypal',
@@ -23,8 +15,6 @@ class test_order_nl(start_webdriver):
     def test_ordernl(self):
 
         for pmname in self.paymethodnl:
-
-            # for totalproductincart in range(0, self.ran):
 
             self.generatecart()  # Generate cart with products from first search page ( Default sorting )
             self.verificationsteps()  # Choose delivery and payment method

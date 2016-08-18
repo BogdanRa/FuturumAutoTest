@@ -31,7 +31,7 @@ vendors ={
 
 
 for i in vendors:
-	for count in range(10):
+	for count in range(5):
 	
 
 		partproductid2 = randint(1000, 9999)
@@ -41,9 +41,9 @@ for i in vendors:
 		#vendorsecondint = randint(1000, 9999)
 		adviesprijs = randint(10, 200)
 		verkoopprijs = adviesprijs + 20
- 		imports.write("{}-{}-00{}-N{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(
+ 		imports.write("{}-{}-00{}-N{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(
  							vendors[i], partproductid2, partproductid3, partproductid4, i, 
- 							Namegenerator.company(), Namegenerator.username(), adviesprijs, verkoopprijs, choice(productstock))),
+ 							Namegenerator.company(), Namegenerator.username(), adviesprijs, verkoopprijs, choice(productstock), "saletest"))
 	 
 print "File was created successfuly with",count+1,"products"
 

@@ -1,5 +1,5 @@
 from startwork import *
-from config.config import *
+
 import random
 
 
@@ -24,7 +24,7 @@ class test_ordernlwithpin(start_webdriver):
 
                 if pmname == "ideal":
                     for pmideal in self.paymethodnl[pmname]:
-                    	self.driver.get(self.cfg['testenvr']['LiveNL'])
+                        self.driver.get(self.cfg['testenvr']['LiveNL'])
                         self.generatecart()
                         self.PINdelivery(self.deliverymethod[method])
                         time.sleep(2)
@@ -34,7 +34,7 @@ class test_ordernlwithpin(start_webdriver):
                 elif pmname == "ogonestd":
 
                     for pmogonestd in self.paymethodnl[pmname]:
-                    	self.driver.get(self.cfg['testenvr']['LiveNL'])
+                        self.driver.get(self.cfg['testenvr']['LiveNL'])
                         self.generatecart()
                         self.PINdelivery(self.deliverymethod[method])
                         time.sleep(2)

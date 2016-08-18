@@ -1,6 +1,4 @@
 from startwork import *
-from config.config import *
-
 
 class productscheck_test(start_webdriver):
     def setUp(self):
@@ -17,7 +15,7 @@ class productscheck_test(start_webdriver):
     def testproducts(self):
 
         for prid in self.produtsid:
-            self.send_keys_id(search, (prid))
+            self.send_keys_id(self.cfg['button']['search'], (prid))
             if len(self.driver.find_elements(By.XPATH, "//ul[@class='col-xs-12']/li")) == 2:
                 print "{} None visible".format(prid)
             elif len(self.driver.find_elements(By.XPATH, "//ul[@class='col-xs-12']/li")) == 0:
