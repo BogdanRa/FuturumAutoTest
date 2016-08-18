@@ -2,11 +2,6 @@
 from startwork import *
 
 class CheckCategory(start_webdriver):
-
-
-
-
-class CheckCategory(start_webdriver, unittest.TestCase):
     def setUp(self):
         self.openbrowser()
 
