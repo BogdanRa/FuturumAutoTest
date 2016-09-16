@@ -13,13 +13,13 @@ import os
 
 
 
-class start_webdriver(unittest.TestCase):
+class StartWork(unittest.TestCase):
 
 
-    def openbrowser(self):
+    def OpenBrowser(self):
         #open yaml file and append data
 
-        ymlfile = open(os.path.join("/home/bohdan/FuturumAutoTest/config/yamltest.yml"), "r")
+        ymlfile = open(os.path.join("/home/bohdan/QAfuturum/FuturumAutoTest/Config/FoPATH.yml"), "r")
         self.cfg = yaml.load(ymlfile)
 
         self.driver = webdriver.Chrome()
@@ -28,7 +28,7 @@ class start_webdriver(unittest.TestCase):
         self.wait = WebDriverWait(self.driver, 20)
 
     def StartAndLogin(self):
-        self.openbrowser()
+        self.OpenBrowser()
         self.product = []
         products = self.driver.find_elements(By.XPATH, "//li[@class='row product']")
         for item in products:

@@ -58,3 +58,6 @@ target/
 
 # PyCharmSettings
 .idea/*
+
+#Config setting
+*.yml

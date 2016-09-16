@@ -1,5 +1,5 @@
 import MySQLdb
-from config.config import *
+#from Config.config import *
 
 class product_form_bd():
     def connect_to_mysql(self):

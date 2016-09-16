@@ -1,9 +1,8 @@
-from startwork import *
-
-import random
+from StartWork import *
 
 
-class test_ordernlwithpin(start_webdriver):
+class OrdernlPin(StartWork):
+
     def setUp(self):
 
         self.StartAndLogin()

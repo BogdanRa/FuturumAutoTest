@@ -1,8 +1,9 @@
-from startwork import *
+from StartWork import *
 
-class testProductAfterImpoert(start_webdriver):
+class testProductAfterImpoert(StartWork):
     def setUp(self):
-        self.openbrowser()
+        self.OpenBrowser()
+
         self.fileproduct = open('prodlevid.txt', 'r')
         self.produtsid = []
         for id in self.fileproduct:
@@ -12,14 +13,14 @@ class testProductAfterImpoert(start_webdriver):
 
     def testRedirectproducts(self):
 
-        for prid in self.produtsid:
+        for productid in self.produtsid:
 
-            self.send_keys_id(self.cfg['button']['search'], prid)
+            self.send_keys_id(self.cfg['button']['search'], productid)
             self.driver.implicitly_wait(3)
             if len(self.driver.find_elements(By.XPATH, "//ul[@class='col-xs-12']/li")) == 2:
-                print "{} -> None visible".format(prid)
+                print("{} -> None visible".format(productid))
             elif len(self.driver.find_elements(By.XPATH, "//ul[@class='col-xs-12']/li")) == 0:
-                print "{} -> Home page".format(prid)
+                print ("{} -> Home page".format(productid))
 
             self.clear('fc_search')
 

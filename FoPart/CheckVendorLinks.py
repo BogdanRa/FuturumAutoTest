@@ -1,11 +1,11 @@
-from startwork import *
+from StartWork import *
 
 
-class vendorLinks(start_webdriver):
+class vendorLinks(StartWork):
 
 
     def setUp(self):
-        self.openbrowser()
+        self.OpenBrowser()
 
 
     def testvendorLinks(self):
@@ -19,7 +19,7 @@ class vendorLinks(start_webdriver):
                 self.driver.get(self.vendorFooter[vendrolinks])
 
                 if self.driver.title in 'Futurumshop | Specialist in Fietsen,Hardlopen,Buitensport':
-                    print self.vendorFooter[vendrolinks],'empty url'
+                    print (self.vendorFooter[vendrolinks],'empty url')
 
 
 

@@ -1,8 +1,8 @@
-from startwork import *
+from StartWork import *
 
 
 
-class test_order_nl(start_webdriver):
+class OrderNl(StartWork):
     def setUp(self):
 
             self.StartAndLogin()
@@ -46,5 +46,5 @@ class test_order_nl(start_webdriver):
                 self.click_by_xpath("//input[@id='{}']".format(pmname))
                 self.placeorder()
 
-    def tearDown(self):
-        self.driver.quit()
+    #def tearDown(self):
+        #self.driver.quit()

@@ -1,9 +1,10 @@
 # !/usr/bin/env python
-from startwork import *
+from StartWork import *
 
-class CheckCategory(start_webdriver):
+class CheckCategory(StartWork):
+
     def setUp(self):
-        self.openbrowser()
+        self.OpenBrowser()
 
     def testLinkscategory(self):
         category = self.driver.find_elements(By.XPATH, "//li[@class='top_menu_element inactive']/*//a")
@@ -18,7 +19,7 @@ class CheckCategory(start_webdriver):
             try:
                 banner = self.driver.find_element(By.XPATH, "//div[@class='row row--small-gutter'][1]/div[1]")
                 if banner.is_displayed():
-                    print "->", url  # URLs which redirect to main page
+                    print ("->", url)  # URLs which redirect to main page
 
             except NoSuchElementException:
                 pass
